@@ -24,5 +24,6 @@ model Post {
 }
 datasource db {
   provider = "postgresql"
-  url      = "postgres://default:oiHqd9saOUl6@ep-hidden-grass-a4uxgrht.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
